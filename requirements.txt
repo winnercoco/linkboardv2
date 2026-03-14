@@ -9,3 +9,7 @@ xlsxwriter
 requests
 pillow
 scikit-learn
+beautifulsoup4
+requests
+playwright
+yt-dlp
