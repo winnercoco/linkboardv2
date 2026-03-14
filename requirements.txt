@@ -1,0 +1,11 @@
+streamlit>=1.30
+pandas>=2.2
+numpy>=1.26
+pyarrow
+altair
+plotly
+openpyxl
+xlsxwriter
+requests
+pillow
+scikit-learn
