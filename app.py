@@ -9,6 +9,20 @@ DATA_PATH = BASE_DIR / "data" / "links.json"
 META_PATH = BASE_DIR / "data" / "metadata.json"
 
 # -----------------------------
+# Loading stream cache function
+# for embedding video
+# -----------------------------
+STREAM_CACHE_PATH = BASE_DIR / "data" / "stream_cache.json"
+
+def load_stream_cache():
+    if STREAM_CACHE_PATH.exists():
+        with open(STREAM_CACHE_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+stream_cache = load_stream_cache()
+
+# -----------------------------
 # Data Load Functions
 # -----------------------------
 def load_data():
@@ -266,46 +280,94 @@ if len(df_filtered) > 0:
                     """,
                     height=420
                 )
+            elif playback_mode == "direct_proxy":
+                stream_url = None
+
+                playback = meta.get("playback", {})
+                page_url = playback.get("page_url", url)
+
+                stream_record = stream_cache.get(url, {})
+                if stream_record:
+                    stream_url = stream_record.get("stream_url")
+
+                if stream_url:
+                    proxied_url = (
+                        f"http://127.0.0.1:5001/proxy"
+                        f"?url={stream_url}"
+                        f"&referer={page_url}"
+                    )
+                    st.video(proxied_url)
+                else:
+                    st.markdown("*No stream available yet*")
 
             else:
                 st.markdown("*No video available*")
 
+
+
         # with left:
 
         #     if thumbnail:
-        #         # st.image(thumbnail, use_container_width=True) #deprecated
-        #         # st.image(thumbnail, width="stretch") #latest
-        #         continue
+        #         st.image(thumbnail, width="stretch")
         #     else:
-        #         st.markdown("### No Thumbnail")
+        #         st.markdown(
+        #             """
+        #             <div style="
+        #                 height:220px;
+        #                 display:flex;
+        #                 align-items:center;
+        #                 justify-content:center;
+        #                 border:1px solid #666;
+        #                 border-radius:8px;
+        #                 background:#111;
+        #                 color:#bbb;
+        #                 text-align:center;
+        #             ">
+        #                 No Thumbnail
+        #             </div>
+        #             """,
+        #             unsafe_allow_html=True
+        #         )
 
-        #     if playback_kind == "direct":
-        #         stream_record = resolve_stream(url)
+        #     playback_mode = meta.get("playback_mode", "none")
+        #     playback = meta.get("playback", {})
 
-        #         if stream_record and stream_record.get("stream_url"):
-        #             st.video(stream_record["stream_url"])
-        #         else:
-        #             st.markdown("*Could not load video stream*")
+        #     embed_url = playback.get("embed_url")
+        #     page_url = playback.get("page_url", url)
 
-        #     elif playback_kind == "embed":
-        #         if embed_url:
-        #             components.html(
-        #                 f"""
-        #                 <iframe
-        #                     src="{embed_url}"
-        #                     width="100%"
-        #                     height="400"
-        #                     frameborder="0"
-        #                     allowfullscreen>
-        #                 </iframe>
-        #                 """,
-        #                 height=420
-        #             )
-        #         else:
-        #             st.markdown("*No embed available*")
+        #     if playback_mode == "embed" and embed_url:
+        #         components.html(
+        #             f"""
+        #             <iframe
+        #                 src="{embed_url}"
+        #                 width="100%"
+        #                 height="400"
+        #                 frameborder="0"
+        #                 allowfullscreen>
+        #             </iframe>
+        #             """,
+        #             height=420
+        #         )
+
+        #     elif page_url:
+        #         components.html(
+        #             f"""
+        #             <iframe
+        #                 src="{page_url}"
+        #                 width="100%"
+        #                 height="400"
+        #                 frameborder="0"
+        #                 allowfullscreen>
+        #             </iframe>
+        #             """,
+        #             height=420
+        #         )
 
         #     else:
         #         st.markdown("*No video available*")
+
+
+
 
         # RIGHT SIDE
         with right:
@@ -330,3 +392,5 @@ if len(df_filtered) > 0:
 
 else:
     st.info("No movies match your filters.")
+
+    

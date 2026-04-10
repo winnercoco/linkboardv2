@@ -2318,5 +2318,21 @@
     "domain": "www.pornhub.com",
     "status": "ok",
     "note": null
+  },
+  "https://pornzog": {
+    "title": null,
+    "thumbnail": null,
+    "playback": {
+      "kind": "page",
+      "mime": null,
+      "embed_url": null,
+      "page_url": "https://pornzog",
+      "extractor": null
+    },
+    "playback_mode": "source_page",
+    "last_scraped": "2026-04-10T13:47:11.508144+00:00",
+    "domain": "pornzog",
+    "status": "partial",
+    "note": "No direct media or embed found"
   }
 }
