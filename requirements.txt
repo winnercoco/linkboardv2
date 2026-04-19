@@ -10,3 +10,4 @@ requests
 pillow
 scikit-learn
 flask
+beautiful soup
