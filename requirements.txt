@@ -1,13 +1,9 @@
 streamlit>=1.30
 pandas>=2.2
 numpy>=1.26
-pyarrow
-altair
-plotly
-openpyxl
-xlsxwriter
+asyncio
 requests
-pillow
-scikit-learn
-flask
 beautifulsoup4
+playwright
+yt-dlp
+flask
