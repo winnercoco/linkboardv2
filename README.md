@@ -4,5 +4,5 @@
 ## A collection of several NSFW links
 
 
-https://linkboard.streamlit.app/
+https://linkboardv2.streamlit.app/
 
