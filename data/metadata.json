@@ -2830,5 +2830,53 @@
     "domain": "www.eporner.com",
     "status": "ok",
     "note": null
+  },
+  "https://www.hqbdsm.com/model_Tara_Lynn_Foxx_2o86t": {
+    "title": "Tara Lynn Foxx - HQBDSM.com",
+    "thumbnail": null,
+    "playback": {
+      "kind": "embed",
+      "mime": "text/html",
+      "embed_url": "https://platform.twitter.com/widgets/widget_iframe.1227a5674072e080ffb1ba14ac0c1079.html?origin=https%3A%2F%2Fwww.hqbdsm.com",
+      "page_url": "https://www.hqbdsm.com/model_Tara_Lynn_Foxx_2o86t",
+      "extractor": null
+    },
+    "playback_mode": "embed",
+    "last_scraped": "2026-05-18T05:14:02.196395+00:00",
+    "domain": "www.hqbdsm.com",
+    "status": "ok",
+    "note": null
+  },
+  "https://punishworld.com/197708-ebony-slave-in-device-bondage-whipped/": {
+    "title": "Ebony Slave In Device Bondage Whipped - Punishworld.com",
+    "thumbnail": "https://st1.nosofiles.com/2/7/c/6/3/output_67b938fd-3202-4f22-9df6-4242f2d36c72_poster.jpg",
+    "playback": {
+      "kind": "direct",
+      "mime": "video/mp4",
+      "embed_url": null,
+      "page_url": "https://punishworld.com/197708-ebony-slave-in-device-bondage-whipped/",
+      "extractor": null
+    },
+    "playback_mode": "direct_proxy",
+    "last_scraped": "2026-05-20T09:36:07.894918+00:00",
+    "domain": "punishworld.com",
+    "status": "ok",
+    "note": null
+  },
+  "https://www.xozilla.xxx/videos/136923/kinky-femdom-porn-clip/": {
+    "title": "Kinky femdom porn clip",
+    "thumbnail": "https://www.xozilla.xxx/contents/videos_screenshots/136000/136923/preview.jpg",
+    "playback": {
+      "kind": "direct",
+      "mime": "video/mp4",
+      "embed_url": null,
+      "page_url": "https://www.xozilla.xxx/videos/136923/kinky-femdom-porn-clip/",
+      "extractor": null
+    },
+    "playback_mode": "direct_proxy",
+    "last_scraped": "2026-05-23T14:12:44.912514+00:00",
+    "domain": "www.xozilla.xxx",
+    "status": "ok",
+    "note": null
   }
 }
