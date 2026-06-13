@@ -10,35 +10,27 @@ df = pd.read_excel(LINKS_PATH)
 print("Reading file:",FILE_NAME,"\n")
 
 def uniformity(selectedColumn):
-    columnName = selectedColumn.upper()  # create printable column name
+    columnName = selectedColumn.upper()    #create printable column name
     printerString = f"========================{columnName}========================"
-
     print(printerString)
-    print("Total rows:", len(df[selectedColumn]))
+    print("Total rows:",len(df[selectedColumn]))
 
     words = (
         df[selectedColumn]
-        .dropna()
         .str.split(",")
         .explode()
         .str.strip()
+        .drop_duplicates()
+        .sort_values()
+        .reset_index(drop=True)
     )
 
-    freq = (
-        words.value_counts()
-        .sort_index()  # alphabetical sorting
-    )
+    print(f"Total count of unique {columnName} is: {len(words.tolist())}") #create a string template to get length
+    print("=" * len(printerString)) #print the underline
 
-    print(f"Total count of unique {columnName} is: {len(freq)}")
-    print("=" * len(printerString))
-
-    # Find longest term for alignment
-    max_len = max(len(word) for word in freq.index)
-
-    for word, count in freq.items():
-        print(f"{word:.<{max_len + 5}}({count})")
-
-    print("=" * len(printerString))
+    for word in words:
+        print(word)     #display the actual words in a list format
+    print("=" * len(printerString)) #print the underline
 
 header = df.columns.drop(["main_link", "duration", "rate"]).tolist()
 
