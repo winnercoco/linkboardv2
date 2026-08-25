@@ -71,8 +71,8 @@ st.sidebar.markdown("## 🔍 Filters")
 
 cat_fields = ["cat_1", "cat_2", "cat_3", "cat_4", "cat_5", "cat_6"]
 
-duration_range = st.sidebar.slider("Duration (minutes)", 0, 300, (60, 150))
-rating_range = st.sidebar.slider("Rating Range", 1, 10, (1, 10))
+duration_range = st.sidebar.slider("Duration (minutes)", 0, 200, (0, 200))
+rating_range = st.sidebar.slider("Rating Range", 1, 10, (5, 10))
 
 core_cats = sorted({item.get("core_cat") for item in data if item.get("core_cat")})
 core_cat_selected = st.sidebar.multiselect("Core Categories", core_cats)
