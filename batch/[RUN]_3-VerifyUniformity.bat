@@ -1,5 +1,5 @@
 @echo off
 cd ..
-cd verifyContentsUniformity
+cd scripts
 python.exe -m verifyuniformity
 pause
